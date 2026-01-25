@@ -23,6 +23,7 @@
 2.  **Service:** Pure business logic. No I/O context.
 3.  **Data:** DB/API access only.
 *Use DTOs (Zod/Pydantic) for all layer communication.*
+*Note: `dependency-cruiser` enforces this. If audit fails, refactor; do not ignore.*
 
 ### 🔄 WORKFLOW LOOP
 1.  **READ:** `Development Guidance/` + Spec.
