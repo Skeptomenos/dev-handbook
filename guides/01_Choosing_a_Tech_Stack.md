@@ -71,7 +71,13 @@ It is not just preference; it is about **Libraries** and **Concurrency**.
 
 ---
 
-## 5. The "Golden Stack" for Admin/Architects
+## 5. Package Management (Hygiene)
+We mandate strict package managers to prevent "Phantom Dependencies" (code running that isn't in `package.json`).
+
+*   **Node/TS:** **`pnpm`** (Not npm/yarn). It uses a non-flat node_modules structure.
+*   **Python:** **`uv`** (Not pip/poetry). It is faster and handles lockfiles deterministically.
+
+## 6. The "Golden Stack" for Admin/Architects
 If you are unsure, start here. This stack minimizes "dev ops" pain and maximizes AI success.
 
 *   **Lang:** TypeScript

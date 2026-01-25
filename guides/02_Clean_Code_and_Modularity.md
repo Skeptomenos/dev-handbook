@@ -77,6 +77,14 @@ Ask yourself (or the AI):
 *   **Bad Answer:** "Every file that queries data."
 *   **Good Answer:** "Just the `Repository` file. The rest of the app doesn't know which DB we use."
 
+## 6. Automated Enforcement
+We don't just hope you follow these rules; we enforce them via CI.
+
+*   **TypeScript:** We use **`dependency-cruiser`** to forbid imports from `Presentation` -> `Data`.
+*   **Python:** We use **`tach`** to define strict module boundaries.
+
+If the build fails with "Forbidden Dependency," it means you bypassed the Service Layer. **Do not ignore it.** Refactor.
+
 ---
 **Up:** [[00_AI_Development_Guide]]
 **Next:** [[03_Principle_Files_Strategy]]

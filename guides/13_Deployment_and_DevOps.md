@@ -26,9 +26,12 @@ Automate the "Back Pressure".
   const env = EnvSchema.parse(process.env); // Crashes with clear error if DB_URL missing
   ```
 
-## 4. Observability
-- **Logs:** JSON-structured logs to stdout. (No text files).
-- **Health Checks:** `/health` endpoint returning `200 OK` (and checking DB connection).
+## 4. Observability & Logging
+- **The Rule:** No `console.log`.
+- **The Solution:** Use **Structured Logging** (JSON).
+  - *Why?* Tools like Datadog/CloudWatch cannot parse text like "User logged in". They CAN parse `{"event": "login", "user_id": 123}`.
+  - *Tools:* Use `pino` (Node) or `structlog` (Python).
+- **Health Checks:** `/health` endpoint returning `200 OK`.
 
 ---
 **Up:** [[00_AI_Development_Guide]]
