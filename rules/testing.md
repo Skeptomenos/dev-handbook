@@ -23,7 +23,15 @@
 - **External:** ALWAYS mock 3rd party APIs (Network calls).
 - **Time:** Mock `Date.now()` for deterministic tests.
 
-## 4. Back Pressure Gates
+## 4. Test Organization
+- **Unit Tests:** Co-located with source code.
+  - `src/features/auth/user.ts` → `src/features/auth/user.test.ts`
+- **Integration/E2E:** Top-level `tests/` folder.
+  - `tests/integration/api.test.ts`
+  - `tests/e2e/login.spec.ts`
+- **Naming:** Use `*.test.ts` for Vitest, `*.spec.ts` for Playwright.
+
+## 5. Back Pressure Gates
 Code is **REJECTED** if:
 - [ ] Any test fails.
 - [ ] Linting fails (ESLint/Ruff).
