@@ -1,0 +1,28 @@
+# Tach Configuration (Python Architecture Rules)
+# https://github.com/gauge-sh/tach
+
+[[modules]]
+path = "src/presentation"
+depends_on = ["src/services", "src/core"]
+strict = true
+
+[[modules]]
+path = "src/services"
+depends_on = ["src/data", "src/core"]
+strict = true
+
+[[modules]]
+path = "src/data"
+depends_on = ["src/core"]
+strict = true
+
+[[modules]]
+path = "src/core"
+depends_on = []
+strict = true
+
+# Forbid Presentation from touching Data directly
+[[constraints]]
+from = "src/presentation"
+to = "src/data"
+allow = false

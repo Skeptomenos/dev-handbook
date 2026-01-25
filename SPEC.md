@@ -12,6 +12,10 @@ This tool lives inside the `dev-handbook` repository to ensure strict alignment 
         - [ ] Adds dev dependency (`pnpm add -D dependency-cruiser`).
         - [ ] Copies `templates/dep-cruiser.config.js` to root.
         - [ ] Adds `"audit": "depcruise src --config .dependency-cruiser.js"` to scripts.
+    - [ ] **Installs `tach` (Python Only):**
+        - [ ] Adds dev dependency (`uv add --dev tach`).
+        - [ ] Copies `templates/tach.toml` to root.
+        - [ ] Adds `audit` task to `pyproject.toml` (if possible) or instructs user.
 - [x] **Inject Command:** `dev-rules inject`
     - [x] Adds standards to the *current* directory.
     - [x] Detects stack (TS/Python) and installs relevant rules.
