@@ -8,14 +8,14 @@ This tool lives inside the `dev-handbook` repository to ensure strict alignment 
 - [x] **Init Command:** `dev-rules init <name>`
     - [x] Scaffolds a new project with the latest standards.
     - [x] Injects `AGENTS.md` and `.cursor/rules/`.
-    - [ ] **Installs `dependency-cruiser` (TS/JS Only):**
-        - [ ] Adds dev dependency (`pnpm add -D dependency-cruiser`).
-        - [ ] Copies `templates/dep-cruiser.config.js` to root.
-        - [ ] Adds `"audit": "depcruise src --config .dependency-cruiser.js"` to scripts.
-    - [ ] **Installs `tach` (Python Only):**
-        - [ ] Adds dev dependency (`uv add --dev tach`).
-        - [ ] Copies `templates/tach.toml` to root.
-        - [ ] Adds `audit` task to `pyproject.toml` (if possible) or instructs user.
+    - [x] **Installs `dependency-cruiser` (TS/JS Only):**
+        - [x] Adds dev dependency (`pnpm add -D dependency-cruiser`).
+        - [x] Copies `templates/dep-cruiser.config.js` to root.
+        - [x] Adds `"audit": "depcruise src --config .dependency-cruiser.js"` to scripts.
+    - [x] **Installs `tach` (Python Only):**
+        - [x] Adds dev dependency (`uv add --dev tach`).
+        - [x] Copies `templates/tach.toml` to root.
+        - [x] Adds `audit` task to `pyproject.toml` (if possible) or instructs user.
 - [x] **Inject Command:** `dev-rules inject`
     - [x] Adds standards to the *current* directory.
     - [x] Detects stack (TS/Python) and installs relevant rules.
@@ -23,7 +23,7 @@ This tool lives inside the `dev-handbook` repository to ensure strict alignment 
     - [x] Checks `.cursor/rules/` for outdated files.
     - [x] Fetches latest from GitHub.
     - [x] Prompts user to confirm overwrites.
-    - [ ] **Check `AGENTS.md`:** Warn if `AGENTS.md` is significantly different from `AGENTS_TEMPLATE.md` (suggest manual diff).
+    - [x] **Check `AGENTS.md`:** Warn if `AGENTS.md` is significantly different from `AGENTS_TEMPLATE.md` (suggest manual diff).
 - [x] **Source of Truth:** Uses the LOCAL rules if running from within the repo, or fetches from GitHub if installed globally.
 
 ## 3. Constraints
