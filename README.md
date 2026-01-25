@@ -1,5 +1,8 @@
 # Dev Handbook
 
+[![npm version](https://img.shields.io/npm/v/dev-rules.svg)](https://www.npmjs.com/package/dev-rules)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 > **The "Senior Architect" in a Box.**
 
 Stop fighting with AI assistants that write sloppy code. This repository provides battle-tested standards, coding principles, and automated tooling that transform AI coding assistants into disciplined senior engineers.
@@ -127,6 +130,11 @@ The CLI is published to npm via GitHub Actions:
 
 1. **Automatic**: Create a GitHub Release → triggers publish
 2. **Manual**: Run the "Publish to npm" workflow with version bump
+
+```bash
+# Create a new release (triggers automatic publish)
+gh release create v1.1.0 --title "v1.1.0" --generate-notes
+```
 
 Requires `NPM_TOKEN` secret configured in repository settings.
 
