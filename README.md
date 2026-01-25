@@ -49,6 +49,9 @@ Features:
 - Auto-detects project type (TypeScript, Python, Rust)
 - Installs only relevant rules for your stack
 - Uses local rules when run from this repo, fetches from GitHub otherwise
+- **Dependency Enforcement:**
+  - Installs `dependency-cruiser` for TypeScript projects (Architecture enforcement)
+  - Installs `tach` for Python projects (Architecture enforcement)
 
 ### `rules/` - The Runtime Kernel
 Token-optimized rules that AI agents read during development:
