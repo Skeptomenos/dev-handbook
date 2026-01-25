@@ -15,6 +15,7 @@ This tool lives inside the `dev-handbook` repository to ensure strict alignment 
     - [x] Checks `.cursor/rules/` for outdated files.
     - [x] Fetches latest from GitHub.
     - [x] Prompts user to confirm overwrites.
+    - [ ] **Check `AGENTS.md`:** Warn if `AGENTS.md` is significantly different from `AGENTS_TEMPLATE.md` (suggest manual diff).
 - [x] **Source of Truth:** Uses the LOCAL rules if running from within the repo, or fetches from GitHub if installed globally.
 
 ## 3. Constraints
