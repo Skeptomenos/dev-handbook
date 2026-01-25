@@ -161,9 +161,11 @@ async function scaffoldTypeScriptProject(targetDir: string, projectName: string)
       test: "vitest",
       lint: "eslint src/",
       typecheck: "tsc --noEmit",
+      audit: "depcruise src --config .dependency-cruiser.js",
     },
     devDependencies: {
       "@types/node": "^20.14.0",
+      "dependency-cruiser": "^16.4.0",
       "ts-node": "^10.9.2",
       typescript: "^5.4.5",
       vitest: "^1.6.0",
@@ -173,6 +175,8 @@ async function scaffoldTypeScriptProject(targetDir: string, projectName: string)
   
   writeFile(join(targetDir, "package.json"), JSON.stringify(packageJson, null, 2));
   console.log(chalk.green("Created package.json"));
+  
+  await installDepCruiserConfig(targetDir);
   
   const tsconfig = {
     compilerOptions: {
@@ -199,6 +203,27 @@ async function scaffoldTypeScriptProject(targetDir: string, projectName: string)
   console.log(chalk.green("Created src/index.ts"));
 }
 
+async function installDepCruiserConfig(targetDir: string): Promise<void> {
+  const source = getRulesSource();
+  const destPath = join(targetDir, ".dependency-cruiser.js");
+
+  try {
+    if (source.type === "local") {
+      const srcPath = join(source.path, "templates", "dep-cruiser.config.js");
+      if (existsSync(srcPath)) {
+        copyFile(srcPath, destPath);
+        console.log(chalk.green("Created .dependency-cruiser.js"));
+      }
+    } else {
+      const content = await fetchRemoteFile(`${source.path}/templates/dep-cruiser.config.js`);
+      writeFile(destPath, content);
+      console.log(chalk.green("Created .dependency-cruiser.js"));
+    }
+  } catch (error) {
+    console.log(chalk.yellow("Could not install dependency-cruiser config"));
+  }
+}
+
 async function scaffoldPythonProject(targetDir: string, projectName: string): Promise<void> {
   const pyprojectToml = `[build-system]
 requires = ["setuptools>=61.0"]
@@ -217,11 +242,14 @@ dev = [
     "pytest>=8.0.0",
     "ruff>=0.4.0",
     "mypy>=1.10.0",
+    "tach>=0.9.0",
 ]
 `;
   
   writeFile(join(targetDir, "pyproject.toml"), pyprojectToml);
   console.log(chalk.green("Created pyproject.toml"));
+  
+  await installTachConfig(targetDir);
   
   const srcDir = join(targetDir, "src", projectName.replace(/-/g, "_"));
   ensureDir(srcDir);
@@ -229,4 +257,27 @@ dev = [
   writeFile(join(srcDir, "__init__.py"), "");
   writeFile(join(srcDir, "main.py"), `def main() -> None:\n    print("Hello, ${projectName}!")\n\n\nif __name__ == "__main__":\n    main()\n`);
   console.log(chalk.green("Created src module"));
+}
+
+async function installTachConfig(targetDir: string): Promise<void> {
+  const source = getRulesSource();
+  const destPath = join(targetDir, "tach.toml");
+
+  try {
+    if (source.type === "local") {
+      const srcPath = join(source.path, "templates", "tach.toml");
+      if (existsSync(srcPath)) {
+        copyFile(srcPath, destPath);
+        console.log(chalk.green("Created tach.toml"));
+      }
+    } else {
+      const content = await fetchRemoteFile(`${source.path}/templates/tach.toml`);
+      writeFile(destPath, content);
+      console.log(chalk.green("Created tach.toml"));
+    }
+  } catch (error) {
+    console.log(chalk.yellow("Could not install tach config"));
+  }
+  
+  console.log(chalk.blue("  Run 'tach check' to verify architecture boundaries"));
 }

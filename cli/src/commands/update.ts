@@ -28,14 +28,16 @@ export async function updateCommand(): Promise<void> {
 
   console.log(chalk.blue("Checking for updates...\n"));
 
+  const source = getRulesSource();
+
+  await checkAgentsMd(targetDir, source);
+
   const localRules = listFiles(rulesDir).filter((f) => f.endsWith(".md"));
 
   if (localRules.length === 0) {
     console.log(chalk.yellow("No rule files found in .cursor/rules/"));
     process.exit(0);
   }
-
-  const source = getRulesSource();
   const statuses: RuleStatus[] = [];
 
   for (const rule of localRules) {
@@ -134,4 +136,59 @@ export async function updateCommand(): Promise<void> {
 
 function hashContent(content: string): string {
   return crypto.createHash("md5").update(content).digest("hex");
+}
+
+async function checkAgentsMd(targetDir: string, source: { type: "local" | "remote"; path: string }): Promise<void> {
+  const agentsPath = join(targetDir, "AGENTS.md");
+  
+  if (!existsSync(agentsPath)) {
+    console.log(chalk.yellow("No AGENTS.md found in project root.\n"));
+    return;
+  }
+
+  try {
+    const localContent = readFile(agentsPath);
+    const localHash = hashContent(localContent);
+
+    let templateContent: string;
+    if (source.type === "local") {
+      const templatePath = join(source.path, "templates", "AGENTS_TEMPLATE.md");
+      if (!existsSync(templatePath)) {
+        return;
+      }
+      templateContent = readFile(templatePath);
+    } else {
+      templateContent = await fetchRemoteFile(`${GITHUB_RAW_BASE}/templates/AGENTS_TEMPLATE.md`);
+    }
+
+    const templateHash = hashContent(templateContent);
+    const similarityScore = calculateSimilarity(localContent, templateContent);
+
+    if (similarityScore < 0.5) {
+      console.log(chalk.yellow("⚠ AGENTS.md differs significantly from template."));
+      console.log(chalk.yellow("  Consider reviewing: diff AGENTS.md against AGENTS_TEMPLATE.md"));
+      console.log(chalk.gray(`  Similarity: ${Math.round(similarityScore * 100)}%\n`));
+    } else if (localHash !== templateHash) {
+      console.log(chalk.blue(`ℹ AGENTS.md has local customizations (${Math.round(similarityScore * 100)}% similar to template)\n`));
+    } else {
+      console.log(chalk.green("✓ AGENTS.md matches template\n"));
+    }
+  } catch (error) {
+    console.log(chalk.gray("Could not check AGENTS.md against template\n"));
+  }
+}
+
+function calculateSimilarity(a: string, b: string): number {
+  const aLines = new Set(a.split("\n").map(l => l.trim()).filter(l => l.length > 0));
+  const bLines = new Set(b.split("\n").map(l => l.trim()).filter(l => l.length > 0));
+  
+  let matches = 0;
+  for (const line of aLines) {
+    if (bLines.has(line)) {
+      matches++;
+    }
+  }
+  
+  const total = Math.max(aLines.size, bLines.size);
+  return total > 0 ? matches / total : 1;
 }
