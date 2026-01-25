@@ -11,6 +11,10 @@ This tool lives inside the `dev-handbook` repository to ensure strict alignment 
 - [ ] **Inject Command:** `dev-rules inject`
     - [ ] Adds standards to the *current* directory.
     - [ ] Detects stack (TS/Python) and installs relevant rules.
+- [ ] **Update Command:** `dev-rules update`
+    - [ ] Checks `.cursor/rules/` for outdated files.
+    - [ ] Fetches latest from GitHub.
+    - [ ] Prompts user to confirm overwrites.
 - [ ] **Source of Truth:** Uses the LOCAL rules if running from within the repo, or fetches from GitHub if installed globally.
 
 ## 3. Constraints
