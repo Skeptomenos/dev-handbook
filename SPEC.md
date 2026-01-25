@@ -8,6 +8,10 @@ This tool lives inside the `dev-handbook` repository to ensure strict alignment 
 - [x] **Init Command:** `dev-rules init <name>`
     - [x] Scaffolds a new project with the latest standards.
     - [x] Injects `AGENTS.md` and `.cursor/rules/`.
+    - [ ] **Installs `dependency-cruiser`:**
+        - [ ] Adds dev dependency (`pnpm add -D dependency-cruiser`).
+        - [ ] Copies `templates/dep-cruiser.config.js` to root.
+        - [ ] Adds `"audit": "depcruise src --config .dependency-cruiser.js"` to scripts.
 - [x] **Inject Command:** `dev-rules inject`
     - [x] Adds standards to the *current* directory.
     - [x] Detects stack (TS/Python) and installs relevant rules.
