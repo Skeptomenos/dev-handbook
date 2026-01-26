@@ -12,7 +12,7 @@
 ### 📚 RULE ACTIVATION
 *You must strictly apply the following rules based on the task:*
 - **All Projects:** `coding_principles/architecture.md`, `coding_principles/workflow.md`
-- **TypeScript/React:** `coding_principles/rules_ts.md`, `coding_principles/rules_react.md`, `coding_principles/logging.md`
+- **TypeScript/React:** `coding_principles/rules_ts.md`, `coding_principles/rules_react.md`, `coding_principles/ui_ux.md`, `coding_principles/logging.md`
 - **Python:** `coding_principles/rules_python.md`, `coding_principles/logging.md`
 - **Database/SQL:** `coding_principles/rules_sql.md`
 - **Rust:** `coding_principles/rules_rust.md`
