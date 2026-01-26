@@ -49,13 +49,13 @@ export function detectStack(targetDir: string): DetectedStack {
 }
 
 export function getRelevantRules(stack: DetectedStack): string[] {
-  const rules: string[] = ["architecture.md", "workflow.md", "security.md"];
+  const rules: string[] = ["architecture.md", "workflow.md", "security.md", "devops.md"];
 
   switch (stack.primary) {
     case "typescript":
       rules.push("rules_ts.md", "logging.md", "testing.md");
       if (stack.hasReact) {
-        rules.push("rules_react.md");
+        rules.push("rules_react.md", "ui_ux.md");
       }
       break;
     case "python":
