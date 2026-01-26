@@ -18,10 +18,10 @@ interface RuleStatus {
 
 export async function updateCommand(): Promise<void> {
   const targetDir = process.cwd();
-  const rulesDir = join(targetDir, ".cursor", "rules");
+  const rulesDir = join(targetDir, "rules");
 
   if (!existsSync(rulesDir)) {
-    console.log(chalk.red("No .cursor/rules/ directory found."));
+    console.log(chalk.red("No rules/ directory found."));
     console.log(chalk.yellow("Run 'dev-rules inject' first to install rules."));
     process.exit(1);
   }
@@ -35,7 +35,7 @@ export async function updateCommand(): Promise<void> {
   const localRules = listFiles(rulesDir).filter((f) => f.endsWith(".md"));
 
   if (localRules.length === 0) {
-    console.log(chalk.yellow("No rule files found in .cursor/rules/"));
+    console.log(chalk.yellow("No rule files found in rules/"));
     process.exit(0);
   }
   const statuses: RuleStatus[] = [];

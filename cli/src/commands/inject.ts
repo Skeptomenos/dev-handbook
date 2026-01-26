@@ -43,7 +43,7 @@ export async function injectCommand(options: InjectOptions): Promise<void> {
   console.log(chalk.green(`Detected stack: ${stack.primary}${stack.hasReact ? " + React" : ""}${stack.hasDatabase ? " + Database" : ""}`));
   
   const agentsPath = join(targetDir, "AGENTS.md");
-  const rulesDir = join(targetDir, ".cursor", "rules");
+  const rulesDir = join(targetDir, "rules");
   
   if (existsSync(agentsPath) && !options.force) {
     const response = await prompts({
@@ -67,11 +67,11 @@ export async function injectCommand(options: InjectOptions): Promise<void> {
   console.log(chalk.green("\nInjection complete!"));
   console.log(chalk.blue("Files created:"));
   console.log(`  - AGENTS.md`);
-  console.log(`  - .cursor/rules/*.md`);
+  console.log(`  - rules/*.md`);
 }
 
 async function installAgentsMd(targetDir: string, stack: ReturnType<typeof detectStack>, rulesDir: string): Promise<void> {
-  const agentsMd = generateAgentsMd(stack, ".cursor/rules");
+  const agentsMd = generateAgentsMd(stack, "rules");
   writeFile(join(targetDir, "AGENTS.md"), agentsMd);
   console.log(chalk.green("Created AGENTS.md"));
 }

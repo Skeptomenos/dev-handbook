@@ -76,10 +76,10 @@ async function scaffoldProject(
   stack: DetectedStack,
   template: string
 ): Promise<void> {
-  const rulesDir = join(targetDir, ".cursor", "rules");
+  const rulesDir = join(targetDir, "rules");
   ensureDir(rulesDir);
   
-  const agentsMd = generateAgentsMd(stack, ".cursor/rules");
+  const agentsMd = generateAgentsMd(stack, "rules");
   writeFile(join(targetDir, "AGENTS.md"), agentsMd);
   console.log(chalk.green("Created AGENTS.md"));
   
@@ -101,7 +101,7 @@ See \`AGENTS.md\` for development guidelines and rules.
 
 ## Structure
 
-- \`.cursor/rules/\` - Coding standards and rules for AI assistance
+- \`rules/\` - Coding standards and rules for AI assistance
 - \`AGENTS.md\` - Main configuration for AI development
 `;
   writeFile(join(targetDir, "README.md"), readmeContent);

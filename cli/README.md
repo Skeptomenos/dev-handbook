@@ -27,7 +27,7 @@ dev-rules init my-app --template python  # Python
 **What it does:**
 - Creates project directory with standard structure
 - Generates `AGENTS.md` with strict development rules
-- Installs relevant rule files to `.cursor/rules/`
+- Installs relevant rule files to `rules/`
 - Sets up basic project files (package.json/pyproject.toml, tsconfig, etc.)
 
 ### `dev-rules inject`
@@ -43,7 +43,7 @@ dev-rules inject --force  # Overwrite existing files
 **What it does:**
 - Detects project type (TypeScript, Python, Rust)
 - Generates customized `AGENTS.md`
-- Installs relevant rule files to `.cursor/rules/`
+- Installs relevant rule files to `rules/`
 
 ### `dev-rules update`
 
@@ -54,7 +54,7 @@ dev-rules update
 ```
 
 **What it does:**
-- Compares local `.cursor/rules/` files with source
+- Compares local `rules/` files with source
 - Shows which files are outdated
 - Prompts user to select files to update
 - Fetches and overwrites selected files
