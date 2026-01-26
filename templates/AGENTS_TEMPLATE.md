@@ -16,6 +16,7 @@
 - **Python:** `coding_principles/rules_python.md`, `coding_principles/logging.md`
 - **Database/SQL:** `coding_principles/rules_sql.md`
 - **Rust:** `coding_principles/rules_rust.md`
+- **DevOps/Infrastructure:** `coding_principles/devops.md`, `coding_principles/security.md`
 - **API/Security:** `coding_principles/api_design.md`, `coding_principles/security.md`
 
 ### 🏗 ARCHITECTURE (3-LAYER)
