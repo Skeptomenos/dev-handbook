@@ -64,10 +64,13 @@ Token-optimized rules that AI agents read during development:
 | `rules_python.md` | Python: Pydantic, type hints, structured logging |
 | `rules_react.md` | React: functional components, hooks patterns |
 | `rules_sql.md` | SQL: parameterized queries, migrations |
+| `rules_rust.md` | Rust: safety, clippy, library-first structure |
 | `security.md` | Secrets via ENV, input validation, no hardcoded keys |
 | `testing.md` | Unit/integration test patterns |
 | `logging.md` | Structured logging, no `console.log` |
 | `api_design.md` | RESTful conventions, error responses |
+| `ui_ux.md` | Accessibility, focus management, Vercel design guidelines |
+| `devops.md` | IaC (Terraform), Docker security, CI/CD pinning |
 
 ### `guides/` - The University Course
 Detailed explanations for humans on *why* we enforce these rules:
