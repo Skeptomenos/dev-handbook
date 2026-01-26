@@ -6,7 +6,7 @@ import { listFiles, readFile, writeFile, fetchRemoteFile } from "../utils/file-o
 import { getRulesSource } from "../utils/paths.js";
 import crypto from "crypto";
 
-const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/your-org/dev-handbook/main";
+const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/Skeptomenos/dev-handbook/main";
 
 interface RuleStatus {
   name: string;

@@ -24,7 +24,7 @@ export function getRulesSource(): { type: "local" | "remote"; path: string } {
   // Fall back to remote GitHub
   return {
     type: "remote",
-    path: "https://raw.githubusercontent.com/your-org/dev-handbook/main",
+    path: "https://raw.githubusercontent.com/Skeptomenos/dev-handbook/main",
   };
 }
 
