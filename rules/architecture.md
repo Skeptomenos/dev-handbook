@@ -35,3 +35,10 @@ src/features/
 ## 3. Data Contracts
 - **DTOs:** Define strict schemas (Zod/Pydantic) for ALL data moving between layers.
 - **Mapping:** Map "Raw DB Rows" to "Clean Domain Objects" in the Repository layer.
+
+## 4. Code Hygiene: No Breadcrumbs
+When moving or deleting code:
+- **Delete completely.** Do not leave `// moved to X` or `// see Y` comments.
+- **No tombstones.** Do not leave `// deprecated` unless it's a public API with consumers.
+- **Git is the history.** Use `git log` and `git blame` to trace changes, not inline comments.
+- **Clean up callers.** If a function no longer needs a parameter or a helper is dead, delete it and update all callers.

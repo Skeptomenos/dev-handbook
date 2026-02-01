@@ -16,3 +16,12 @@
 ## Workflow
 - When adding a new rule, verify it doesn't conflict with existing principles.
 - When updating a guide, check if the corresponding rule needs an update.
+
+## CLI Tool (`cli/`)
+When making changes to the CLI source:
+1. Edit TypeScript files in `cli/src/`
+2. Run `npm run build` in `cli/` directory
+3. Changes are immediately available via `dev-rules` command (linked locally)
+
+To publish to npm for others:
+- Create a GitHub release → triggers the publish workflow automatically

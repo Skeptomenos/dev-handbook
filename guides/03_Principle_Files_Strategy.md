@@ -50,4 +50,4 @@ This is highly feasible and recommended. It scales your "Senior Architect" role 
 ---
 **Up:** [[00_AI_Development_Guide]]
 **Next:** [[04_Writing_Good_Specs]]
-**Principles:** [[coding_principles/rules_ts.md|TypeScript]] | [[coding_principles/rules_python.md|Python]] | [[coding_principles/rules_sql.md|SQL]] | [[coding_principles/rules_rust.md|Rust]]
+**Principles:** [[rules/rules_ts.md|TypeScript]] | [[rules/rules_python.md|Python]] | [[rules/rules_sql.md|SQL]] | [[rules/rules_rust.md|Rust]] | [[rules/rules_swift.md|Swift]]

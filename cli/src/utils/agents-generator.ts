@@ -54,6 +54,9 @@ function buildRuleActivation(stack: DetectedStack, rulesLocation: string): strin
     case "rust":
       lines.push(`- **Rust:** \`${rulesLocation}/rules_rust.md\``);
       break;
+    case "swift":
+      lines.push(`- **Swift/iOS:** \`${rulesLocation}/rules_swift.md\`, \`${rulesLocation}/rules_swift_concurrency.md\`, \`${rulesLocation}/rules_ios_agentic.md\``);
+      break;
   }
   
   if (stack.hasDatabase) {

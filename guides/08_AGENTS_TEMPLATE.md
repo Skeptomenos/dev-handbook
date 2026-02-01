@@ -11,12 +11,13 @@
 
 ### 📚 RULE ACTIVATION
 *You must strictly apply the following rules based on the task:*
-- **All Projects:** `coding_principles/architecture.md`, `coding_principles/workflow.md`
-- **TypeScript/React:** `coding_principles/rules_ts.md`, `coding_principles/rules_react.md`, `coding_principles/logging.md`
-- **Python:** `coding_principles/rules_python.md`, `coding_principles/logging.md`
-- **Database/SQL:** `coding_principles/rules_sql.md`
-- **Rust:** `coding_principles/rules_rust.md`
-- **API/Security:** `coding_principles/api_design.md`, `coding_principles/security.md`
+- **All Projects:** `rules/architecture.md`, `rules/workflow.md`
+- **TypeScript/React:** `rules/rules_ts.md`, `rules/rules_react.md`, `rules/logging.md`
+- **Python:** `rules/rules_python.md`, `rules/logging.md`
+- **Database/SQL:** `rules/rules_sql.md`
+- **Rust:** `rules/rules_rust.md`
+- **Swift/iOS:** `rules/rules_swift.md`, `rules/rules_swift_concurrency.md`, `rules/rules_ios_agentic.md`
+- **API/Security:** `rules/api_design.md`, `rules/security.md`
 
 ### 🏗 ARCHITECTURE (3-LAYER)
 1.  **Presentation:** CLI/UI only. No logic.

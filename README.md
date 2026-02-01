@@ -59,7 +59,8 @@ Token-optimized rules that AI agents read during development:
 | Rule | Purpose |
 |------|---------|
 | `architecture.md` | 3-layer architecture (Presentation → Service → Data) |
-| `workflow.md` | Spec-driven development, TDD loop |
+| `workflow.md` | Spec-driven development, TDD loop, multi-agent awareness |
+| `tooling.md` | Task runners, package managers, AST tools |
 | `rules_ts.md` | TypeScript: no `any`, Zod validation, error handling |
 | `rules_python.md` | Python: Pydantic, type hints, structured logging |
 | `rules_react.md` | React: functional components, hooks patterns |

@@ -19,9 +19,17 @@
   - *Tool:* Playwright.
 
 ## 3. Mocking Rules
+Mocks can create false confidence. Prefer real implementations where practical.
+
+- **Prefer Real Over Fake:**
+  - Use real databases via Docker/Testcontainers, not in-memory mocks.
+  - Use sandbox/test environments for external APIs (Stripe test mode, not HTTP mocks).
 - **Internal:** Do NOT mock your own Service/Repo logic. Test the integration.
-- **External:** ALWAYS mock 3rd party APIs (Network calls).
-- **Time:** Mock `Date.now()` for deterministic tests.
+- **When Mocking is Acceptable:**
+  - 3rd party APIs with no sandbox environment.
+  - Time (`Date.now()`) and randomness for deterministic tests.
+  - Network boundaries only (not internal interfaces).
+- **Verify Against Contracts:** If you mock an external API, validate your mock matches the real API's behavior (use contract tests or recorded fixtures).
 
 ## 4. Test Organization
 - **Unit Tests:** Co-located with source code.

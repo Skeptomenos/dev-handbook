@@ -19,7 +19,7 @@ export async function injectCommand(options: InjectOptions): Promise<void> {
   const stack = detectStack(targetDir);
   
   if (stack.primary === "unknown") {
-    console.log(chalk.yellow("Could not detect project type. No package.json, pyproject.toml, or Cargo.toml found."));
+    console.log(chalk.yellow("Could not detect project type. No package.json, pyproject.toml, Cargo.toml, or Package.swift found."));
     
     const response = await prompts({
       type: "select",
@@ -29,6 +29,7 @@ export async function injectCommand(options: InjectOptions): Promise<void> {
         { title: "TypeScript/Node.js", value: "typescript" },
         { title: "Python", value: "python" },
         { title: "Rust", value: "rust" },
+        { title: "Swift/iOS", value: "swift" },
       ],
     });
     
